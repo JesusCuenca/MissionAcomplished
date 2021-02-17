@@ -18,6 +18,8 @@ public class CardInHand
 
     private CanvasGroup canvasGroupCache;
 
+    public bool CardDroppedIntoPile { get; set; }
+
     private CanvasGroup CanvasGroup
     {
         get
@@ -36,6 +38,7 @@ public class CardInHand
         this.SpawnCardGap(this.returnTransform, this.transform.GetSiblingIndex());
         this.transform.SetParent(this.transform.parent.parent);
         this.CanvasGroup.blocksRaycasts = false;
+        this.CardDroppedIntoPile = false;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -59,7 +62,7 @@ public class CardInHand
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (this.cardGap.activeSelf) {
+        if (!this.CardDroppedIntoPile) {
             this.transform.SetParent(this.returnTransform);
             this.transform.SetSiblingIndex(this.cardGap.transform.GetSiblingIndex());
             this.CanvasGroup.blocksRaycasts = true;

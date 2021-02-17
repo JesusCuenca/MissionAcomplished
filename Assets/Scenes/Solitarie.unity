@@ -699,6 +699,7 @@ GameObject:
   - component: {fileID: 1149398982}
   - component: {fileID: 1149398981}
   - component: {fileID: 1149398980}
+  - component: {fileID: 1149398983}
   m_Layer: 5
   m_Name: CardsInHand
   m_TagString: Untagged
@@ -787,6 +788,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1149398978}
   m_CullTransparentMesh: 0
+--- !u!114 &1149398983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149398978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 531ccac29ed0c34448f837120d8ec292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1165220997 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8211196453160131024, guid: 8f2564d109af4d04483b909085390039,
