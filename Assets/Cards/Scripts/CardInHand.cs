@@ -59,9 +59,13 @@ public class CardInHand
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        this.transform.SetParent(this.returnTransform);
-        this.transform.SetSiblingIndex(this.cardGap.transform.GetSiblingIndex());
-        this.CanvasGroup.blocksRaycasts = true;
+        if (this.cardGap.activeSelf) {
+            this.transform.SetParent(this.returnTransform);
+            this.transform.SetSiblingIndex(this.cardGap.transform.GetSiblingIndex());
+            this.CanvasGroup.blocksRaycasts = true;
+        } else {
+            Destroy(this.gameObject);
+        }
         Destroy(this.cardGap);
     }
 
@@ -71,5 +75,13 @@ public class CardInHand
         this.cardGap.transform.SetSiblingIndex(siblingIndex);
     }
 
-   
+    public void EnableCardGap() {
+        if (this.cardGap != null) 
+            this.cardGap.SetActive( true );
+    }
+    
+    public void DisableCardGap() {
+        if (this.cardGap != null)
+            this.cardGap.SetActive( false );
+    }
 }

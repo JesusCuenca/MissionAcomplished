@@ -121,5 +121,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e01763fca80d6f48b05052582463987, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  atlas: {fileID: 4343727234628468602, guid: 1026b11543821b44abae8815191becaa, type: 2}
   CardHandGapPrefab: {fileID: 3774742376063576388, guid: c1b240cb033fb7e469267d5f0cfcee86,
     type: 3}

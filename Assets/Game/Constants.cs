@@ -1,4 +1,6 @@
-﻿public enum Ranks
+﻿using System.Collections.Generic;
+
+public enum Ranks
 {
     NoRank = -1,
     One = 0,
@@ -19,8 +21,16 @@ public enum Colors
     Yellow = 3
 }
 
+
 public class Constants {
     public const int RANK_COUNT = 7;
     public const int COLOR_COUNT = 4;
     public const int CARD_OF_EACH_COLOR_AND_RANK_COUNT = 2;
+    public static Dictionary<Colors, string> ColorToSpriteName = new Dictionary<Colors, string>() {
+        { Colors.Red, "r" },
+        { Colors.Green, "g" },
+        { Colors.Blue, "b" },
+        { Colors.Yellow, "y" },
+    };
+
 }
