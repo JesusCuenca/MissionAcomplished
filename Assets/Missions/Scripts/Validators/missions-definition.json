@@ -1,0 +1,360 @@
+{
+    "missions": [
+        {
+            "type": "all.even-odd-two-by-two",
+            "text": "Las cartas son pares e impares dos a dos",
+            "arguments": []
+        },
+        {
+            "type": "all.even",
+            "text": "Todas las cartas son <b>pares</b>",
+            "arguments": []
+        },
+        {
+            "type": "all.greater-than-4",
+            "text": "Todas las cartas son mayores que 4",
+            "arguments": []
+        },
+        {
+            "type": "all.lower-than-4",
+            "text": "Todas las cartas son menores que 4",
+            "arguments": []
+        },
+        {
+            "type": "all.odd",
+            "text": "Todas las cartas son <b>impares</b>",
+            "arguments": []
+        },
+        {
+            "type": "colors.2-adjacent-blue",
+            "text": "Hay dos cartas azules adyacentes",
+            "arguments": [
+                "blue"
+            ]
+        },
+        {
+            "type": "colors.2-adjacent-green",
+            "text": "Hay dos cartas verdes adyacentes",
+            "arguments": [
+                "green"
+            ]
+        },
+        {
+            "type": "colors.2-adjacent-red",
+            "text": "Hay dos cartas rojas adyacentes",
+            "arguments": [
+                "red"
+            ]
+        },
+        {
+            "type": "colors.2-adjacent-yellow",
+            "text": "Hay dos cartas amarillas adyacentes",
+            "arguments": [
+                "yellow"
+            ]
+        },
+        {
+            "type": "colors.2-alternate-blue",
+            "text": "Hay dos cartas azules alternas",
+            "arguments": [
+                "blue"
+            ]
+        },
+        {
+            "type": "colors.2-alternate-green",
+            "text": "Hay dos cartas verdes alternas",
+            "arguments": [
+                "green"
+            ]
+        },
+        {
+            "type": "colors.2-alternate-red",
+            "text": "Hay dos cartas rojas alternas",
+            "arguments": [
+                "red"
+            ]
+        },
+        {
+            "type": "colors.2-alternate-yellow",
+            "text": "Hay dos cartas amarillas alternas",
+            "arguments": [
+                "yellow"
+            ]
+        },
+        {
+            "type": "colors.2-not-adjacent-blue",
+            "text": "Hay dos cartas azules no adyacentes",
+            "arguments": [
+                "blue"
+            ]
+        },
+        {
+            "type": "colors.2-not-adjacent-green",
+            "text": "Hay dos cartas verdes no adyacentes",
+            "arguments": [
+                "green"
+            ]
+        },
+        {
+            "type": "colors.2-not-adjacent-red",
+            "text": "Hay dos cartas rojas no adyacentes",
+            "arguments": [
+                "red"
+            ]
+        },
+        {
+            "type": "colors.2-not-adjacent-yellow",
+            "text": "Hay dos cartas amarillas no adyacentes",
+            "arguments": [
+                "yellow"
+            ]
+        },
+        {
+            "type": "colors.3-blue",
+            "text": "Hay tres cartas azules",
+            "arguments": [
+                "blue"
+            ]
+        },
+        {
+            "type": "colors.3-green",
+            "text": "Hay tres cartas verdes",
+            "arguments": [
+                "green"
+            ]
+        },
+        {
+            "type": "colors.3-red",
+            "text": "Hay tres cartas rojas",
+            "arguments": [
+                "red"
+            ]
+        },
+        {
+            "type": "colors.3-yellow",
+            "text": "Hay tres cartas amarillas",
+            "arguments": [
+                "yellow"
+            ]
+        },
+        {
+            "type": "flush.3-straight",
+            "text": "Hay escalera de 3 cartas en orden",
+            "arguments": []
+        },
+        {
+            "type": "flush.4-random",
+            "text": "Hay escalera de 4 cartas en cualquier orden",
+            "arguments": []
+        },
+        {
+            "type": "no-repetition.colors",
+            "text": "No hay ningún color repetido",
+            "arguments": [
+                "colors"
+            ]
+        },
+        {
+            "type": "no-repetition.colors-ranks",
+            "text": "No hay ningún número ni color repetido",
+            "arguments": [
+                "colors-ranks"
+            ]
+        },
+        {
+            "type": "no-repetition.ranks",
+            "text": "No hay ningún número repetido",
+            "arguments": [
+                "ranks"
+            ]
+        },
+        {
+            "type": "sum.colors-double.blue-red",
+            "text": "Las cartas rojas azules suman el doble que las rojas",
+            "arguments": [
+                "blue",
+                "red"
+            ]
+        },
+        {
+            "type": "sum.colors-double.green-blue",
+            "text": "Las cartas verdes suman el doble que las azules",
+            "arguments": [
+                "green",
+                "blue"
+            ]
+        },
+        {
+            "type": "sum.colors-double.red-green",
+            "text": "Las cartas rojas suman el doble que las verdes",
+            "arguments": [
+                "red",
+                "green"
+            ]
+        },
+        {
+            "type": "sum.colors-double.red-yellow",
+            "text": "Las cartas rojas suman el doble que las amarillas",
+            "arguments": [
+                "red",
+                "yellow"
+            ]
+        },
+        {
+            "type": "sum.colors-double.yellow-blue",
+            "text": "Las cartas amarillas suman el doble que las azules",
+            "arguments": [
+                "yellow",
+                "blue"
+            ]
+        },
+        {
+            "type": "sum.colors-double.yellow-green",
+            "text": "Las cartas amarillas suman el doble que las verdes",
+            "arguments": [
+                "yellow",
+                "green"
+            ]
+        },
+        {
+            "type": "sum.colors.blue-yellow",
+            "text": "Las cartas azules suman lo mismo que las amarillas",
+            "arguments": [
+                "blue",
+                "yellow"
+            ]
+        },
+        {
+            "type": "sum.colors.green-blue",
+            "text": "Las cartas verdes suman lo mismo que las azules",
+            "arguments": [
+                "green",
+                "blue"
+            ]
+        },
+        {
+            "type": "sum.colors.green-yellow",
+            "text": "Las cartas verdes suman lo mismo que las amarillas",
+            "arguments": [
+                "green",
+                "yellow"
+            ]
+        },
+        {
+            "type": "sum.colors.red-blue",
+            "text": "Las cartas rojas suman lo mismo que las azules",
+            "arguments": [
+                "red",
+                "blue"
+            ]
+        },
+        {
+            "type": "sum.colors.red-green",
+            "text": "Las cartas rojas suman lo mismo que las verdes",
+            "arguments": [
+                "red",
+                "green"
+            ]
+        },
+        {
+            "type": "sum.colors.red-yellow",
+            "text": "Las cartas rojas suman lo mismo que las amarillas",
+            "arguments": [
+                "red",
+                "yellow"
+            ]
+        },
+        {
+            "type": "sum.total.10",
+            "text": "Todas las cartas suman 10",
+            "arguments": [
+                "10"
+            ]
+        },
+        {
+            "type": "sum.total.15",
+            "text": "Todas las cartas suman 15",
+            "arguments": [
+                "15"
+            ]
+        },
+        {
+            "type": "sum.total.18",
+            "text": "Todas las cartas suman 18",
+            "arguments": [
+                "18"
+            ]
+        },
+        {
+            "type": "sum.total.20",
+            "text": "Todas las cartas suman 20",
+            "arguments": [
+                "20"
+            ]
+        },
+        {
+            "type": "sum.total.blue.3",
+            "text": "Las cartas azules suman 3",
+            "arguments": [
+                "blue",
+                "3"
+            ]
+        },
+        {
+            "type": "sum.total.blue.9",
+            "text": "Las cartas azules suman 9",
+            "arguments": [
+                "blue",
+                "9"
+            ]
+        },
+        {
+            "type": "sum.total.green.6",
+            "text": "Las cartas verdes suman 6",
+            "arguments": [
+                "green",
+                "6"
+            ]
+        },
+        {
+            "type": "sum.total.green.7",
+            "text": "Las cartas verdes suman 7",
+            "arguments": [
+                "green",
+                "7"
+            ]
+        },
+        {
+            "type": "sum.total.red.10",
+            "text": "Las cartas rojas suman 10",
+            "arguments": [
+                "red",
+                "10"
+            ]
+        },
+        {
+            "type": "sum.total.red.4",
+            "text": "Las cartas rojas suman 4",
+            "arguments": [
+                "red",
+                "4"
+            ]
+        },
+        {
+            "type": "sum.total.yellow.11",
+            "text": "Las cartas amarillas suman 11",
+            "arguments": [
+                "yellow",
+                "11"
+            ]
+        },
+        {
+            "type": "sum.total.yellow.2",
+            "text": "Las cartas amarillas suman 2",
+            "arguments": [
+                "yellow",
+                "2"
+            ]
+        }
+    ]
+}

@@ -55,15 +55,16 @@ SpriteAtlas:
   - {fileID: 21300000, guid: ad9b740655189ff4c8910c49811e80e5, type: 3}
   - {fileID: 21300000, guid: 6216cf761f38c9b45aad08af507c63a4, type: 3}
   - {fileID: 21300000, guid: 27301487684e4bc46a1f6e2b608c8a8f, type: 3}
-  - {fileID: 21300000, guid: 0670f9d7215717944ad3d2c619701f26, type: 3}
+  - {fileID: 21300000, guid: 89d7f1c84e4ce0a42bc9afc47eabc4fd, type: 3}
   - {fileID: 21300000, guid: bc262ad867013a844b669d7dc5820661, type: 3}
   - {fileID: 21300000, guid: 8110ecf84122dd0469ded144f038e294, type: 3}
   - {fileID: 21300000, guid: eb1eaa89e4e8d2546b6698a293155005, type: 3}
   - {fileID: 21300000, guid: 4e705f2b4f3540248bf9f9eff1f3ca00, type: 3}
+  - {fileID: 21300000, guid: e41dcbdb093a7bf43875887d7844729f, type: 3}
   - {fileID: 21300000, guid: 4f1e321d9255169478cf1a29d8a2518f, type: 3}
+  - {fileID: 21300000, guid: dce8aa5dbb648214cbdd4b36bd5344b5, type: 3}
   - {fileID: 21300000, guid: 49571c5dbe675bb409121c70c802f896, type: 3}
   - {fileID: 21300000, guid: e68ab3afb25ca1641855432588d8afdd, type: 3}
-  - {fileID: 21300000, guid: 306695ff0a9bbc14a95b2813088fb879, type: 3}
   m_PackedSpriteNamesToIndex:
   - 3-g
   - 1-y
@@ -86,14 +87,15 @@ SpriteAtlas:
   - 4-g
   - 1-r
   - 5-b
-  - mission
+  - back
   - 1-g
   - 6-r
   - 4-y
   - 3-y
+  - mission
   - 2-r
+  - mission-txt
   - 4-r
   - 5-y
-  - back
   m_Tag: Cards
   m_IsVariant: 0
