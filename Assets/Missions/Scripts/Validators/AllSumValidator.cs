@@ -7,14 +7,8 @@ public class AllSumValidator : BaseValidator
     public AllSumValidator(string type, params string[] arguments) :
         base(type)
     {
-        // if (arguments.Length == 0) {
-        //     throw new System.Exception("AllSumValidator expects at least one argument.");
-        // }
-        // try {
-        //     this.sum = int.Parse(arguments[0]);
-        // } catch (FormatException e) {
-        //     throw new System.Exception("AllSumValidator expects the first parameter to be an integer.");
-        // }
+        this.ValidateArgumentCount(arguments, 1);
+        this.sum = this.ArgumentToInt(arguments[0], 0);
     }
 
     public override string GetCardText()
@@ -24,6 +18,6 @@ public class AllSumValidator : BaseValidator
 
     protected override bool ValidatePiles()
     {
-        return true;
+        return this.piles.SumAllRanks() == this.sum;
     }
 }

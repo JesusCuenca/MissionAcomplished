@@ -28,13 +28,16 @@ public class CardBase : MonoBehaviour
     public Colors Color {
         get => (Colors)( this._value/Constants.RANK_COUNT );
     }
+    public int Number {
+        get => (int)this.Rank + 1;
+    }
 
     protected virtual void UpdateImage() {
         this.ImageComp.sprite = GetSprite();
     }
 
     protected Sprite GetSprite()  {
-        string spriteName = string.Format("{0}-{1}", 1 + ((int)this.Rank), Constants.ColorToSpriteName[this.Color]);
+        string spriteName = string.Format("{0}-{1}", this.Number, Constants.ColorToSpriteName[this.Color]);
         return this.atlas.GetSprite(spriteName);
     }
 

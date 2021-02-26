@@ -170,7 +170,7 @@
         },
         {
             "type": "sum.colors-double.blue-red",
-            "text": "Las cartas rojas azules suman el doble que las rojas",
+            "text": "Las cartas azules suman el doble que las rojas",
             "arguments": [
                 "blue",
                 "red"
