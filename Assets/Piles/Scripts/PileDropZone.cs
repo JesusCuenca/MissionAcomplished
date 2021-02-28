@@ -9,8 +9,8 @@ public class PileDropZone
     public delegate void CardDroppedIntoPile(int cardValue, int pileIndex);
     public static event CardDroppedIntoPile cardDroppedIntoPile;
 
-    public static UnityEngine.Color DroppableColor = new UnityEngine.Color(255, 255, 255, 0.5f);
-    public static UnityEngine.Color DefaultColor = new UnityEngine.Color(0, 0, 0, 0.2f);
+    public static UnityEngine.Color DroppableColor = new UnityEngine.Color(0, 0, 0, 0.2f);
+    public static UnityEngine.Color DefaultColor = new UnityEngine.Color(0, 0, 0, 0.0f);
 
     public int pileIndex;
 

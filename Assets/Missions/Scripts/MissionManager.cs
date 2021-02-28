@@ -43,6 +43,19 @@ public class MissionManager
             {
                 string json = reader.ReadToEnd();
                 this.missions = JsonUtility.FromJson<MissionArray>(json).missions;
+
+                // Shuffle
+                System.Random rnd = new System.Random();
+                int count = this.missions.Length;
+                int n = count;
+                while (n > 1)
+                {
+                    n--;
+                    int r = rnd.Next(count);
+                    var temp = this.missions[r];
+                    this.missions[r] = this.missions[n];
+                    this.missions[n] = temp;
+                }
             }
         } catch(Exception e) {
             Debug.Log("Error loading missions: " + e.Message);

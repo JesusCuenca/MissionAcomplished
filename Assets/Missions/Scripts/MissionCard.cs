@@ -35,4 +35,8 @@ public class MissionCard : MonoBehaviour
        this.TextComp.text = this._validator.GetCardText();
        this.TextComp.enabled = true;
    }
+
+   public bool IsAcomplished(CardBase[] piles) {
+       return this._validator.IsAcomplished(piles);
+   }
 }

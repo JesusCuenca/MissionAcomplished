@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -27,7 +26,7 @@ public class ValidatorPiles
         }
     }
 
-    protected ValidatorPiles(ValidatorCard[] cards)
+    public ValidatorPiles(ValidatorCard[] cards)
     {
         this.cards = cards;
     }

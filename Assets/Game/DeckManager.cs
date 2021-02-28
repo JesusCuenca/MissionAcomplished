@@ -35,7 +35,7 @@ public class DeckManager
         }
 
         // Shuffle
-        Random rnd = new Random(cardCount);
+        Random rnd = new Random();
         int n = cardCount;
         while (n > 1)
         {

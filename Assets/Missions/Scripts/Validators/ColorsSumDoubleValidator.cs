@@ -8,7 +8,7 @@ public class ColorsSumDoubleValidator: ColorsSumEqualValidator
 
     public override string GetCardText()
     {
-        return string.Format("Las cargas {0} suman el doble que las {1}", this.GetColorTranslated(this.color1), this.GetColorTranslated(this.color2));
+        return string.Format("Las cartas {0} suman el doble que las {1}", this.GetColorTranslated(this.color1), this.GetColorTranslated(this.color2));
     }
 
     protected override bool ValidatePiles()

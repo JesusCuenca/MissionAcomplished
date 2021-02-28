@@ -238,6 +238,26 @@ PrefabInstance:
       propertyPath: pileIndex
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7078431440946963050, guid: 8f2564d109af4d04483b909085390039,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7078431440946963050, guid: 8f2564d109af4d04483b909085390039,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7078431440946963050, guid: 8f2564d109af4d04483b909085390039,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7078431440946963050, guid: 8f2564d109af4d04483b909085390039,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8211196453160131024, guid: 8f2564d109af4d04483b909085390039,
         type: 3}
       propertyPath: m_Name
@@ -367,6 +387,26 @@ PrefabInstance:
         type: 3}
       propertyPath: pileIndex
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7078431440946963050, guid: 8f2564d109af4d04483b909085390039,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7078431440946963050, guid: 8f2564d109af4d04483b909085390039,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7078431440946963050, guid: 8f2564d109af4d04483b909085390039,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7078431440946963050, guid: 8f2564d109af4d04483b909085390039,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8211196453160131024, guid: 8f2564d109af4d04483b909085390039,
         type: 3}
@@ -565,6 +605,7 @@ GameObject:
   - component: {fileID: 761144148}
   - component: {fileID: 761144149}
   - component: {fileID: 761144151}
+  - component: {fileID: 761144152}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -662,6 +703,18 @@ MonoBehaviour:
   - {fileID: 1165220997}
   missionsCards: []
   pilesCards: []
+--- !u!114 &761144152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761144147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e84504f7b93707e45af4cf1e3c32eb7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &900125263
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -778,6 +831,26 @@ PrefabInstance:
         type: 3}
       propertyPath: pileIndex
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7078431440946963050, guid: 8f2564d109af4d04483b909085390039,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7078431440946963050, guid: 8f2564d109af4d04483b909085390039,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7078431440946963050, guid: 8f2564d109af4d04483b909085390039,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7078431440946963050, guid: 8f2564d109af4d04483b909085390039,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8211196453160131024, guid: 8f2564d109af4d04483b909085390039,
         type: 3}
@@ -1239,6 +1312,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7078431440946963050, guid: 8f2564d109af4d04483b909085390039,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7078431440946963050, guid: 8f2564d109af4d04483b909085390039,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7078431440946963050, guid: 8f2564d109af4d04483b909085390039,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7078431440946963050, guid: 8f2564d109af4d04483b909085390039,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8211196453160131024, guid: 8f2564d109af4d04483b909085390039,
         type: 3}

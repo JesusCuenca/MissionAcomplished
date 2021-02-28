@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 public abstract class BaseValidator
 {
@@ -41,7 +42,7 @@ public abstract class BaseValidator
         if (wrapInColor)
         {
             string colorHex = GetColorHex(color);
-            return $"<color={color}>{translated}</color>";
+            return $"<color={colorHex}>{translated}</color>";
         }
         
         return translated;

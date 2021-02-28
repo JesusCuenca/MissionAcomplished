@@ -19,6 +19,7 @@ public class MainController : MonoBehaviour
     private void OnEnable()
     {
         PileDropZone.cardDroppedIntoPile += CardDroppedIntoPile;
+        MissionUserInputController.missionClicked += CheckMissionAcomplished;
         this.deck = new DeckManager();
         this.missions = new MissionManager();
 
@@ -46,7 +47,7 @@ public class MainController : MonoBehaviour
         }
         for (int i = 0; i < 4; i++) {
             yield return new WaitForSeconds(0.1f);
-            this.HandOutMission();
+            this.HandOutMission(null);
         }
     }
 
@@ -56,26 +57,37 @@ public class MainController : MonoBehaviour
         card.GetComponent<CardInHand>().Value = this.deck.Draw();
     }
 
-    private void HandOutMission() {
+    private void HandOutMission(int? siblingIndex) {
         MissionDefinition? def = this.missions.Draw();
         if(def == null) return;
         GameObject mission = Instantiate(this.MissionPrefab, this.missionsContainer.transform);
+        if(siblingIndex != null) mission.transform.SetSiblingIndex(siblingIndex.Value);
         mission.GetComponent<MissionCard>().Value = def.Value;
     }
 
     public void CardDroppedIntoPile(int cardValue, int pileIndex)
     {
-
-        Debug
-            .Log("Card with value " +
-            cardValue +
-            " was dropped into pile " +
-            pileIndex);
         this.HandOutCard();
+    }
+
+    public void CheckMissionAcomplished(GameObject missionGO) {
+        MissionCard mission = missionGO.GetComponent<MissionCard>();
+        if(!mission) {
+            Debug.Log("No se ha encontrado el componente de la misión.");
+            return;
+        }
+        if (!mission.IsAcomplished(this.pilesCards))
+        {
+            Debug.Log("La missión no se ha completado!");
+            return;
+        }
+        this.HandOutMission(missionGO.transform.GetSiblingIndex());
+        Destroy(missionGO);
     }
 
     private void OnDisable()
     {
         PileDropZone.cardDroppedIntoPile -= CardDroppedIntoPile;
+        MissionUserInputController.missionClicked -= CheckMissionAcomplished;
     }
 }
