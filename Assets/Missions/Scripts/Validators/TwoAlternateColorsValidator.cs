@@ -14,7 +14,7 @@ public class TwoAlternateColorsValidator : BaseValidator
     public override string GetCardText()
     {
         return string
-            .Format("Hay dos cartas {0} adyacentes",
+            .Format("Hay dos cartas {0} alternas",
             this.GetColorTranslated(this.color));
     }
 
