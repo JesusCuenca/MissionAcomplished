@@ -24,12 +24,14 @@ public class MissionManager
     public int index = 0;
 
     public int Count { get => this.index; }
+    public int Total { get; private set; }
     public bool Empty { get => this.index == 0; }
 
     public MissionManager()
     {
         this.LoadDeck();
         this.index = this.missions.Length;
+        this.Total = this.missions.Length;
     }
 
     public MissionDefinition? Draw() {

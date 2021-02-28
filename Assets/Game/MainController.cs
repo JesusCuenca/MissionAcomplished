@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainController : MonoBehaviour
 {
@@ -15,13 +16,13 @@ public class MainController : MonoBehaviour
     public GameObject[] piles;
     public GameObject[] missionsCards;
     public CardBase[] pilesCards;
+    public Text remainingCardsTxt;
+    public Text missionsAcomplishedTxt;
 
     private void OnEnable()
     {
         PileDropZone.cardDroppedIntoPile += CardDroppedIntoPile;
         MissionUserInputController.missionClicked += CheckMissionAcomplished;
-        this.deck = new DeckManager();
-        this.missions = new MissionManager();
 
         this.missionsCards = new GameObject[4];
         this.pilesCards = new CardBase[4];
@@ -32,7 +33,31 @@ public class MainController : MonoBehaviour
     }
 
     private void Start() {
+        InitializeGame();
+    }
+
+    public void ResetGame() {
+        this.RemoveCardsFromBoard();
+        this.InitializeGame();
+    }
+
+    private void InitializeGame() {
+        this.deck = new DeckManager();
+        this.missions = new MissionManager();
         StartCoroutine(DealInitialCards());
+    }
+
+    private void RemoveCardsFromBoard() {
+        for(int i = 0; i < this.cardsInHandContainer.transform.childCount; i++) {
+            Destroy(this.cardsInHandContainer.transform.GetChild(i).gameObject);
+        }
+        foreach (var card in this.pilesCards)
+        {
+            card.Value = -1;
+        }
+        for(int i = 0; i < this.missionsContainer.transform.childCount; i++) {
+            Destroy(this.missionsContainer.transform.GetChild(i).gameObject);
+        }
     }
 
     private IEnumerator DealInitialCards() {
@@ -44,6 +69,7 @@ public class MainController : MonoBehaviour
         foreach (GameObject pile in piles){
             yield return new WaitForSeconds(0.1f);
             pile.GetComponent<PileDropZone>().Value = this.deck.Draw();
+            this.UpdateRemainingCardsText();
         }
         for (int i = 0; i < 4; i++) {
             yield return new WaitForSeconds(0.1f);
@@ -55,6 +81,7 @@ public class MainController : MonoBehaviour
         if (this.deck.Empty) return;
         GameObject card = Instantiate(this.CardPrefab, this.cardsInHandContainer.transform);
         card.GetComponent<CardInHand>().Value = this.deck.Draw();
+        this.UpdateRemainingCardsText();
     }
 
     private void HandOutMission(int? siblingIndex) {
@@ -63,6 +90,7 @@ public class MainController : MonoBehaviour
         GameObject mission = Instantiate(this.MissionPrefab, this.missionsContainer.transform);
         if(siblingIndex != null) mission.transform.SetSiblingIndex(siblingIndex.Value);
         mission.GetComponent<MissionCard>().Value = def.Value;
+        this.UpdateMissionsAcomplishedText();
     }
 
     public void CardDroppedIntoPile(int cardValue, int pileIndex)
@@ -83,6 +111,14 @@ public class MainController : MonoBehaviour
         }
         this.HandOutMission(missionGO.transform.GetSiblingIndex());
         Destroy(missionGO);
+    }
+
+    private void UpdateRemainingCardsText() {
+        this.remainingCardsTxt.text = string.Format("Cartas restantes\n{0}", this.deck.Count);
+    }
+
+    private void UpdateMissionsAcomplishedText() {
+        this.missionsAcomplishedTxt.text = string.Format("Misiones cumplidas\n{0}", Mathf.Max(0, this.missions.Total - this.missions.Count - 4));
     }
 
     private void OnDisable()

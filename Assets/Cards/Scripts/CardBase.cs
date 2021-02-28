@@ -37,7 +37,9 @@ public class CardBase : MonoBehaviour
     }
 
     protected Sprite GetSprite()  {
-        string spriteName = string.Format("{0}-{1}", this.Number, Constants.ColorToSpriteName[this.Color]);
+        string spriteName = this.Value < 0 
+            ? "back" 
+            : string.Format("{0}-{1}", this.Number, Constants.ColorToSpriteName[this.Color]);
         return this.atlas.GetSprite(spriteName);
     }
 

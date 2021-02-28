@@ -11,6 +11,6 @@ public class AllLowerThan4Validator : BaseValidator
 
     protected override bool ValidatePiles()
     {
-        return this.piles.Filter(card => card.rank > 4).Length == this.piles.Length;
+        return this.piles.Filter(card => card.rank < 4).Length == this.piles.Length;
     }
 }

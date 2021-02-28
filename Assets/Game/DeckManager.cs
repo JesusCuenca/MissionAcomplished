@@ -7,10 +7,12 @@ public class DeckManager
 
     public int Count { get => this.index; }
     public bool Empty { get => this.index == 0; }
+    public int Total { get; private set; }
 
     public DeckManager() {
         GenerateDeck();
         this.index = this.deck.Length;
+        this.Total = this.deck.Length;
     }
 
     public int Draw() {
