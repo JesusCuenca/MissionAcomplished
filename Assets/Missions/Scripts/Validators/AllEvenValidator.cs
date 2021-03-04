@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-public class AllEvenValidator : BaseValidator
+﻿public class AllEvenValidator : BaseValidator
 {
     public AllEvenValidator(string type) : base(type) {}
 

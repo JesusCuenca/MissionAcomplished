@@ -1,8 +1,4 @@
-﻿using System.Linq;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class AllOddValidator : BaseValidator
+﻿public class AllOddValidator : BaseValidator
 {
     public AllOddValidator(string type) : base(type) {}
 

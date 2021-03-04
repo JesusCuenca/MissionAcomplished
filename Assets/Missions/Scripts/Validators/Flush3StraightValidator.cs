@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Flush3StraightValidator : BaseValidator
+﻿public class Flush3StraightValidator : BaseValidator
 {
     public Flush3StraightValidator(string type) : base(type) {}
 

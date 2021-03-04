@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using UnityEngine;
 
 [Serializable]
@@ -41,23 +40,21 @@ public class MissionManager
 
     private void LoadDeck() {
         try {
-            using (StreamReader reader = new StreamReader(Application.dataPath + "/Missions/Scripts/Validators/missions-definition.json"))
-            {
-                string json = reader.ReadToEnd();
-                this.missions = JsonUtility.FromJson<MissionArray>(json).missions;
+            TextAsset json = Resources.Load<TextAsset>("missions-definition");
+            Debug.Log(json);
+            this.missions = JsonUtility.FromJson<MissionArray>(json.ToString()).missions;
 
-                // Shuffle
-                System.Random rnd = new System.Random();
-                int count = this.missions.Length;
-                int n = count;
-                while (n > 1)
-                {
-                    n--;
-                    int r = rnd.Next(count);
-                    var temp = this.missions[r];
-                    this.missions[r] = this.missions[n];
-                    this.missions[n] = temp;
-                }
+            // Shuffle
+            System.Random rnd = new System.Random();
+            int count = this.missions.Length;
+            int n = count;
+            while (n > 1)
+            {
+                n--;
+                int r = rnd.Next(count);
+                var temp = this.missions[r];
+                this.missions[r] = this.missions[n];
+                this.missions[n] = temp;
             }
         } catch(Exception e) {
             Debug.Log("Error loading missions: " + e.Message);

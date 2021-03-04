@@ -1,6 +1,4 @@
-﻿using System;
-
-public class AllColorsSumValidator : BaseValidator
+﻿public class AllColorsSumValidator : BaseValidator
 {
     private Colors color;
 

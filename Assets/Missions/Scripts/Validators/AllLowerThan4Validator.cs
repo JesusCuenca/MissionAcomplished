@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-public class AllLowerThan4Validator : BaseValidator
+﻿public class AllLowerThan4Validator : BaseValidator
 {
     public AllLowerThan4Validator(string type) : base(type) {}
 

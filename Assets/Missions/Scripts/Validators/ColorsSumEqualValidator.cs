@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class ColorsSumEqualValidator : BaseValidator
+﻿public class ColorsSumEqualValidator : BaseValidator
 {
     protected Colors color1;
     protected Colors color2;
@@ -20,6 +16,8 @@ public class ColorsSumEqualValidator : BaseValidator
 
     protected override bool ValidatePiles()
     {
-        return this.piles.SumColorRanks(this.color1) == this.piles.SumColorRanks(this.color2);
+        int sum1 = this.piles.SumColorRanks(this.color1);
+        int sum2 = this.piles.SumColorRanks(this.color2);
+        return sum1 > 0 && sum1 == sum2;
     }
 }

@@ -1,6 +1,4 @@
-﻿using System;
-
-public class AllSumValidator : BaseValidator
+﻿public class AllSumValidator : BaseValidator
 {
     private int sum;
 
