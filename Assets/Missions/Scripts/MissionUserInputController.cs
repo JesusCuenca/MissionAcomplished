@@ -19,10 +19,7 @@ public class MissionUserInputController : MonoBehaviour
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(mousePosition2d);
 
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(imp), Vector2.zero);
-            if (!hit) {
-                Debug.Log("Click on nothing");
-                return;
-            };
+            if (!hit) return;
 
             if (hit.collider.CompareTag("Mission"))
             {

@@ -1,5 +1,5 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,14 +10,18 @@ public class MainController : MonoBehaviour
 
     public GameObject CardPrefab;
     public GameObject MissionPrefab;
+    public GameObject EndOfGameDialog;
+    public Text EndOfGameScore;
 
     public GameObject cardsInHandContainer;
     public GameObject missionsContainer;
     public GameObject[] piles;
+    public PileDropZone[] pilesCards;
     public GameObject[] missionsCards;
-    public CardBase[] pilesCards;
     public Text remainingCardsTxt;
     public Text missionsAcomplishedTxt;
+
+    private int AcomplishedMissions { get => Mathf.Max(0, this.missions.Total - this.missions.Count - 4); }
 
     private void OnEnable()
     {
@@ -25,10 +29,10 @@ public class MainController : MonoBehaviour
         MissionUserInputController.missionClicked += CheckMissionAcomplished;
 
         this.missionsCards = new GameObject[4];
-        this.pilesCards = new CardBase[4];
+        this.pilesCards = new PileDropZone[4];
         for (int i = 0; i < this.piles.Length; i++)
         {
-            this.pilesCards[i] = this.piles[i].GetComponent<CardBase>();
+            this.pilesCards[i] = this.piles[i].GetComponent<PileDropZone>();
         }
     }
 
@@ -42,6 +46,9 @@ public class MainController : MonoBehaviour
     }
 
     private void InitializeGame() {
+        if(this.EndOfGameDialog != null) {
+            this.EndOfGameDialog.SetActive(false);
+        }
         this.deck = new DeckManager();
         this.missions = new MissionManager();
         StartCoroutine(DealInitialCards());
@@ -75,6 +82,7 @@ public class MainController : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
             this.HandOutMission(null);
         }
+        this.CheckGameEnd();
     }
 
     private void HandOutCard() {
@@ -96,6 +104,7 @@ public class MainController : MonoBehaviour
     public void CardDroppedIntoPile(int cardValue, int pileIndex)
     {
         this.HandOutCard();
+        this.CheckGameEnd();
     }
 
     public void CheckMissionAcomplished(GameObject missionGO) {
@@ -118,7 +127,34 @@ public class MainController : MonoBehaviour
     }
 
     private void UpdateMissionsAcomplishedText() {
-        this.missionsAcomplishedTxt.text = string.Format("Misiones cumplidas\n{0}", Mathf.Max(0, this.missions.Total - this.missions.Count - 4));
+        this.missionsAcomplishedTxt.text = string.Format("Misiones cumplidas\n{0}", this.AcomplishedMissions);
+    }
+
+    private void CheckGameEnd() {
+        int cardsInHandCount = this.cardsInHandContainer.transform.childCount;
+        for (int i = 0; i < cardsInHandCount; i++)
+        {
+            CardInHand card = this.cardsInHandContainer.transform.GetChild(i).GetComponent<CardInHand>();
+            if (card == null) {
+                continue;
+            }
+
+            foreach (PileDropZone pile in this.pilesCards)
+            {
+                if (pile.CardIsValid(card)) {
+                    return;
+                }
+            }
+
+        }
+
+        // TODO: Notificar al usuario cuando se quede sin cartas.
+        Debug.Log("Fin del juego");
+        if (this.EndOfGameDialog != null)
+        {
+            this.EndOfGameScore.text = "" + this.AcomplishedMissions;
+            this.EndOfGameDialog.SetActive(true);
+        }
     }
 
     private void OnDisable()

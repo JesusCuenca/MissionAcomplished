@@ -62,7 +62,7 @@ public class PileDropZone
         if (comp != null && this.CardIsValid(comp)) this.SetDefaultUI();
     }
 
-    private bool CardIsValid(CardInHand card) {
+    public bool CardIsValid(CardInHand card) {
         return this.Color == card.Color ||
             this.Rank == card.Rank;
     }
