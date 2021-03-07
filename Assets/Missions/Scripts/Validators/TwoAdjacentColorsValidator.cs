@@ -26,8 +26,16 @@ public class TwoAdjacentColorsValidator : BaseValidator
             .Select(obj => obj.index)
             .ToArray();
 
-        if (indexes.Length != 2) return false;
+        if (indexes.Length < 2) return false;
 
-        return (indexes[1] - indexes[0]) == 1;
+        for (int i = 0; i < indexes.Length - 1; i++)
+        {
+            if (indexes[i + 1] - indexes[i] == 1)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
