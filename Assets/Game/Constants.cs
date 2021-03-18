@@ -33,4 +33,9 @@ public class Constants {
         { Colors.Yellow, "y" },
     };
 
+    public const string HEX_COLOR_RED = "#ff595e";
+    public const string HEX_COLOR_GREEN = "#8ac926";
+    public const string HEX_COLOR_BLUE = "#1982c4";
+    public const string HEX_COLOR_YELLOW = "#ffca3a";
+
 }
