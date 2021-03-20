@@ -1,41 +1,44 @@
 ﻿using System.Linq;
 
-public class TwoAdjacentColorsValidator : BaseValidator
+namespace MissionAcomplished.Missions.Validators
 {
-    protected Colors color;
-
-    public TwoAdjacentColorsValidator(string type, params string[] arguments) :
-        base(type)
+    public class TwoAdjacentColorsValidator : BaseValidator
     {
-        this.ValidateArgumentCount(arguments, 1);
-        this.color = this.ArgumentToColor(arguments[0], 1);
-    }
+        protected Colors color;
 
-    public override string GetCardText()
-    {
-        return string
-            .Format("Hay dos cartas {0} adyacentes",
-            this.GetColorTranslated(this.color));
-    }
-
-    protected override bool ValidatePiles()
-    {
-        int[] indexes = this.piles.cards
-            .Select((card, index) => new { card, index })
-            .Where(obj => obj.card.color == this.color)
-            .Select(obj => obj.index)
-            .ToArray();
-
-        if (indexes.Length < 2) return false;
-
-        for (int i = 0; i < indexes.Length - 1; i++)
+        public TwoAdjacentColorsValidator(string type, params string[] arguments) :
+            base(type)
         {
-            if (indexes[i + 1] - indexes[i] == 1)
-            {
-                return true;
-            }
+            this.ValidateArgumentCount(arguments, 1);
+            this.color = this.ArgumentToColor(arguments[0], 1);
         }
 
-        return false;
+        public override string GetCardText()
+        {
+            return string
+                .Format("Hay dos cartas {0} adyacentes",
+                this.GetColorTranslated(this.color));
+        }
+
+        protected override bool ValidatePiles()
+        {
+            int[] indexes = this.piles.cards
+                .Select((card, index) => new { card, index })
+                .Where(obj => obj.card.color == this.color)
+                .Select(obj => obj.index)
+                .ToArray();
+
+            if (indexes.Length < 2) return false;
+
+            for (int i = 0; i < indexes.Length - 1; i++)
+            {
+                if (indexes[i + 1] - indexes[i] == 1)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }

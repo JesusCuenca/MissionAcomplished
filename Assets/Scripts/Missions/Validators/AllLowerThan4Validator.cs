@@ -1,14 +1,17 @@
-﻿public class AllLowerThan4Validator : BaseValidator
+﻿namespace MissionAcomplished.Missions.Validators
 {
-    public AllLowerThan4Validator(string type) : base(type) {}
-
-    public override string GetCardText()
+    public class AllLowerThan4Validator : BaseValidator
     {
-        return "Todas las cartas son menores que 4";
-    }
+        public AllLowerThan4Validator(string type) : base(type) { }
 
-    protected override bool ValidatePiles()
-    {
-        return this.piles.Filter(card => card.rank < 4).Length == this.piles.Length;
+        public override string GetCardText()
+        {
+            return "Todas las cartas son menores que 4";
+        }
+
+        protected override bool ValidatePiles()
+        {
+            return this.piles.Filter(card => card.rank < 4).Length == this.piles.Length;
+        }
     }
 }

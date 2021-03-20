@@ -1,31 +1,35 @@
 ﻿using System.Linq;
 
-public class ThreeColorsValidator : BaseValidator
+namespace MissionAcomplished.Missions.Validators
 {
-    protected Colors color;
-
-    public ThreeColorsValidator(string type, params string[] arguments) : base(type) {
-        this.ValidateArgumentCount(arguments, 1);
-        this.color = this.ArgumentToColor(arguments[0], 1);
-    }
-
-    public override string GetCardText()
+    public class ThreeColorsValidator : BaseValidator
     {
-        return string.Format("Hay tres cartas {0}", this.GetColorTranslated(this.color));
-    }
+        protected Colors color;
 
-    protected override bool ValidatePiles()
-    {
-        var results = this.piles.GroupByColor();
-        foreach (var result in results)
+        public ThreeColorsValidator(string type, params string[] arguments) : base(type)
         {
-            if (result.Key == this.color && result.Count() == 3)
-            {
-                return true;
-            }
+            this.ValidateArgumentCount(arguments, 1);
+            this.color = this.ArgumentToColor(arguments[0], 1);
         }
 
-        return false;
+        public override string GetCardText()
+        {
+            return string.Format("Hay tres cartas {0}", this.GetColorTranslated(this.color));
+        }
+
+        protected override bool ValidatePiles()
+        {
+            var results = this.piles.GroupByColor();
+            foreach (var result in results)
+            {
+                if (result.Key == this.color && result.Count() == 3)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }
 

@@ -1,21 +1,24 @@
-﻿public class AllSumValidator : BaseValidator
+﻿namespace MissionAcomplished.Missions.Validators
 {
-    private int sum;
-
-    public AllSumValidator(string type, params string[] arguments) :
-        base(type)
+    public class AllSumValidator : BaseValidator
     {
-        this.ValidateArgumentCount(arguments, 1);
-        this.sum = this.ArgumentToInt(arguments[0], 0);
-    }
+        private int sum;
 
-    public override string GetCardText()
-    {
-        return "Todas las cartas suman " + this.sum;
-    }
+        public AllSumValidator(string type, params string[] arguments) :
+            base(type)
+        {
+            this.ValidateArgumentCount(arguments, 1);
+            this.sum = this.ArgumentToInt(arguments[0], 0);
+        }
 
-    protected override bool ValidatePiles()
-    {
-        return this.piles.SumAllRanks() == this.sum;
+        public override string GetCardText()
+        {
+            return "Todas las cartas suman " + this.sum;
+        }
+
+        protected override bool ValidatePiles()
+        {
+            return this.piles.SumAllRanks() == this.sum;
+        }
     }
 }

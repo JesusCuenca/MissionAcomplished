@@ -1,26 +1,29 @@
 ﻿using System.Linq;
 
-public class EvenOddAlternateValidator : BaseValidator
+namespace MissionAcomplished.Missions.Validators
 {
-    public EvenOddAlternateValidator(string type) : base(type) {}
-
-    public override string GetCardText()
+    public class EvenOddAlternateValidator : BaseValidator
     {
-        return "Las cartas son pares e impares dos a dos";
-    }
+        public EvenOddAlternateValidator(string type) : base(type) { }
 
-    protected override bool ValidatePiles()
-    {
-        var result = this.piles.cards
-            .Select((card, index) => new { even = card.rank % 2 == 0, index })
-            .GroupBy(obj => obj.even, obj => obj.index)
-            .ToArray();
+        public override string GetCardText()
+        {
+            return "Las cartas son pares e impares dos a dos";
+        }
 
-        if (result.Length != 2) return false;
-        
-        if (result[0].Count() != 2) return false;
+        protected override bool ValidatePiles()
+        {
+            var result = this.piles.cards
+                .Select((card, index) => new { even = card.rank % 2 == 0, index })
+                .GroupBy(obj => obj.even, obj => obj.index)
+                .ToArray();
 
-        int[] indexes = result[0].ToArray();
-        return (indexes[1] - indexes[0]) == 2;
+            if (result.Length != 2) return false;
+
+            if (result[0].Count() != 2) return false;
+
+            int[] indexes = result[0].ToArray();
+            return (indexes[1] - indexes[0]) == 2;
+        }
     }
 }

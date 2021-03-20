@@ -1,25 +1,28 @@
 ﻿using System.Linq;
 
-public class Flush4RandomValidator : BaseValidator
+namespace MissionAcomplished.Missions.Validators
 {
-    public Flush4RandomValidator(string type) : base(type) {}
-
-    public override string GetCardText()
+    public class Flush4RandomValidator : BaseValidator
     {
-        return "Hay escalera de tres cartas en orden";
-    }
+        public Flush4RandomValidator(string type) : base(type) { }
 
-    protected override bool ValidatePiles()
-    {
-        int[] ranks = this.piles.GetRanks().OrderBy(rank => rank).ToArray();
-        for (int i = 0; i < ranks.Length - 1; i++)
+        public override string GetCardText()
         {
-            if ((ranks[i] + 1) != ranks[i + 1])
-            {
-                return false;
-            }
+            return "Hay escalera de tres cartas en orden";
         }
 
-        return true;
+        protected override bool ValidatePiles()
+        {
+            int[] ranks = this.piles.GetRanks().OrderBy(rank => rank).ToArray();
+            for (int i = 0; i < ranks.Length - 1; i++)
+            {
+                if ((ranks[i] + 1) != ranks[i + 1])
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
     }
 }

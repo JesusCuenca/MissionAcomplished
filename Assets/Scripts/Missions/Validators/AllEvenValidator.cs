@@ -1,14 +1,17 @@
-﻿public class AllEvenValidator : BaseValidator
+﻿namespace MissionAcomplished.Missions.Validators
 {
-    public AllEvenValidator(string type) : base(type) {}
-
-    public override string GetCardText()
+    public class AllEvenValidator : BaseValidator
     {
-        return "Todas las cartas son <b>pares</b>";
-    }
+        public AllEvenValidator(string type) : base(type) { }
 
-    protected override bool ValidatePiles()
-    {
-        return this.piles.Filter(card => card.rank % 2 == 0).Length == this.piles.Length;
+        public override string GetCardText()
+        {
+            return "Todas las cartas son <b>pares</b>";
+        }
+
+        protected override bool ValidatePiles()
+        {
+            return this.piles.Filter(card => card.rank % 2 == 0).Length == this.piles.Length;
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 
-public class TwoNotAdjacentColorsValidator : BaseValidator
+namespace MissionAcomplished.Missions.Validators
+{public class TwoNotAdjacentColorsValidator : BaseValidator
 {
     protected Colors color;
 
@@ -34,7 +35,8 @@ public class TwoNotAdjacentColorsValidator : BaseValidator
             {
                 return true;
             }
-        }       
+        }
         return false;
     }
+}
 }

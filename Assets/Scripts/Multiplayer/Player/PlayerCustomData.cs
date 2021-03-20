@@ -1,15 +1,17 @@
 ﻿using System;
-
-[Serializable]
-public struct PlayerCustomData
+namespace MissionAcomplished.Multiplayer.Player
 {
-    public string name;
-
-    public int avatar;
-
-    public PlayerCustomData(string name, int avatar)
+    [Serializable]
+    public struct PlayerCustomData
     {
-        this.name = name;
-        this.avatar = avatar;
+        public string name;
+
+        public int avatar;
+
+        public PlayerCustomData(string name, int avatar)
+        {
+            this.name = name;
+            this.avatar = avatar;
+        }
     }
 }
