@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MainController : MonoBehaviour
+public class SingleplayerGameController : MonoBehaviour
 {
     private DeckManager deck;
     private MissionManager missions;
