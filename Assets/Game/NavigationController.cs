@@ -17,8 +17,7 @@ public class NavigationController : MonoBehaviour
 
     public void LoadMultiplayerPlayerScene()
     {
-        // StartCoroutine(LoadScene("Multiplayer"));
-        Debug.Log("Nada por aquí");
+        StartCoroutine(LoadScene("MultiplayerLobby"));
     }
 
     private IEnumerator LoadScene(string scene)
