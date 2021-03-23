@@ -25,8 +25,6 @@ namespace MissionAcomplished.SinglePlayer
         public Text remainingCardsTxt;
         public Text missionsAcomplishedTxt;
 
-        private int AcomplishedMissions { get => Mathf.Max(0, this.missions.Total - this.missions.Count - 4); }
-
         private void OnEnable()
         {
             PileDropZone.cardDroppedIntoPile += CardDroppedIntoPile;
@@ -110,7 +108,7 @@ namespace MissionAcomplished.SinglePlayer
 
         private void HandOutMission(int? siblingIndex)
         {
-            MissionDefinition? def = this.missions.Draw();
+            MissionDefinition? def = this.missions.ActivateNext();
             if (def == null) return;
             GameObject mission = Instantiate(this.MissionPrefab, this.missionsContainer.transform);
             if (siblingIndex != null) mission.transform.SetSiblingIndex(siblingIndex.Value);
@@ -137,6 +135,8 @@ namespace MissionAcomplished.SinglePlayer
                 Debug.Log("La missión no se ha completado!");
                 return;
             }
+
+            this.missions.Acomplish(mission.Value);
             this.HandOutMission(missionGO.transform.GetSiblingIndex());
             Destroy(missionGO);
         }
@@ -148,7 +148,7 @@ namespace MissionAcomplished.SinglePlayer
 
         private void UpdateMissionsAcomplishedText()
         {
-            this.missionsAcomplishedTxt.text = string.Format("Misiones cumplidas\n{0}", this.AcomplishedMissions);
+            this.missionsAcomplishedTxt.text = string.Format("Misiones cumplidas\n{0}", this.missions.CountAcomplished);
         }
 
         private void CheckGameEnd()
@@ -176,7 +176,7 @@ namespace MissionAcomplished.SinglePlayer
             Debug.Log("Fin del juego");
             if (this.EndOfGameDialog != null)
             {
-                this.EndOfGameScore.text = "" + this.AcomplishedMissions;
+                this.EndOfGameScore.text = "" + this.missions.CountAcomplished;
                 this.EndOfGameDialog.SetActive(true);
             }
         }

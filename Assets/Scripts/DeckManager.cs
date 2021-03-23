@@ -1,34 +1,41 @@
 ﻿using System;
+using System.Collections.Generic;
 using MissionAcomplished.Cards;
 
 namespace MissionAcomplished
 {
     public class DeckManager
     {
-        protected int[] deck;
-        protected int index = 0;
+        protected Queue<byte> deck;
 
-        public int Count { get => this.index; }
-        public bool Empty { get => this.index == 0; }
-        public int Total { get; private set; }
+        public int Count { get => this.deck.Count; }
+        public bool Empty { get => this.deck.Count == 0; }
 
-        public DeckManager()
+        public DeckManager(byte[] deck)
         {
-            GenerateDeck();
-            this.index = this.deck.Length;
-            this.Total = this.deck.Length;
+            this.deck = new Queue<byte>(deck);
         }
+
+        public DeckManager() : this(DeckManager.Shuffle(DeckManager.GenerateDeckStatic())) { }
 
         public int Draw()
         {
-            if (this.Empty) return -1;
-            return this.deck[--this.index];
+            return this.deck.Dequeue();
         }
 
-        protected int[] GenerateDeck()
+        public byte[] ToByteArray()
+        {
+            return this.deck.ToArray();
+        }
+
+        public void FromByteArray(byte[] cards) {
+            this.deck = new Queue<byte>(cards);
+        }
+
+        public static byte[] GenerateDeckStatic()
         {
             int cardCount = Constants.RANK_COUNT * Constants.COLOR_COUNT * Constants.CARD_OF_EACH_COLOR_AND_RANK_COUNT;
-            this.deck = new int[cardCount];
+            var deck = new byte[cardCount];
 
             int index = 0;
             for (int rank = 0; rank < Constants.RANK_COUNT; rank++)
@@ -37,24 +44,28 @@ namespace MissionAcomplished
                 {
                     for (int rep = 0; rep < Constants.CARD_OF_EACH_COLOR_AND_RANK_COUNT; rep++)
                     {
-                        this.deck[index++] = CardBase.GetValueFromRankAndColor(rank, color);
+                        deck[index++] = (byte)CardBase.GetValueFromRankAndColor(rank, color);
                     }
                 }
             }
 
-            // Shuffle
+            return deck;
+        }
+
+        public static byte[] Shuffle(byte[] deck)
+        {
             Random rnd = new Random();
-            int n = cardCount;
+            int n = deck.Length;
             while (n > 1)
             {
                 int k = rnd.Next(n);
                 n--;
-                int temp = this.deck[k];
-                this.deck[k] = this.deck[n];
-                this.deck[n] = temp;
+                byte temp = deck[k];
+                deck[k] = deck[n];
+                deck[n] = temp;
             }
 
-            return this.deck;
+            return deck;
         }
     }
 }

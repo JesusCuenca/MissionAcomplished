@@ -2,7 +2,6 @@
 using UnityEngine.UI;
 using MissionAcomplished.Missions.Validators;
 using MissionAcomplished.Cards;
-using MissionAcomplished.Piles;
 
 namespace MissionAcomplished.Missions
 {

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace MissionAcomplished.Missions
@@ -7,9 +8,6 @@ namespace MissionAcomplished.Missions
     public struct MissionDefinition
     {
         public string type;
-
-        public string text;
-
         public string[] arguments;
     }
 
@@ -19,56 +17,79 @@ namespace MissionAcomplished.Missions
         public MissionDefinition[] missions;
     }
 
+    [Serializable]
     public class MissionManager
     {
-        public MissionDefinition[] missions;
-        public int index = 0;
+        [SerializeField]
+        public Queue<MissionDefinition> missions;
+        [SerializeField]
+        public List<MissionDefinition> activeMissions;
+        [SerializeField]
+        public List<MissionDefinition> acomplishedMissions;
 
-        public int Count { get => this.index; }
+        public int Count { get => this.missions.Count; }
+        public int CountActive { get => this.activeMissions.Count; }
+        public int CountAcomplished { get => this.acomplishedMissions.Count; }
         public int Total { get; private set; }
-        public bool Empty { get => this.index == 0; }
 
-        public MissionManager()
+        public MissionManager(Queue<MissionDefinition> missions, List<MissionDefinition> active = null, List<MissionDefinition> acomplished = null)
         {
-            this.LoadDeck();
-            this.index = this.missions.Length;
-            this.Total = this.missions.Length;
+            this.missions = missions;
+            this.activeMissions = active ?? new List<MissionDefinition>();
+            this.acomplishedMissions = acomplished ?? new List<MissionDefinition>();
         }
 
-        public MissionDefinition? Draw()
+        public MissionManager() : this(MissionManager.LoadAndShuffleDeck()) { }
+
+        public MissionDefinition? ActivateNext()
         {
-            if (this.Empty) return null;
-            return this.missions[--this.index];
+            if (this.missions.Count == 0)
+            {
+                return null;
+            }
+
+            var mission = this.missions.Dequeue();
+            this.activeMissions.Add(mission);
+            return mission;
         }
 
-        private void LoadDeck()
+        public MissionDefinition? Acomplish(MissionDefinition mission)
+        {
+            if (this.activeMissions.Remove(mission))
+            {
+                this.acomplishedMissions.Add(mission);
+                return mission;
+            }
+            return null;
+        }
+
+        private static Queue<MissionDefinition> LoadAndShuffleDeck()
         {
             try
             {
                 TextAsset json = Resources.Load<TextAsset>("missions-definition");
-                Debug.Log(json);
-                this.missions = JsonUtility.FromJson<MissionArray>(json.ToString()).missions;
+                var missions = JsonUtility.FromJson<MissionArray>(json.ToString()).missions;
 
                 // Shuffle
                 System.Random rnd = new System.Random();
-                int count = this.missions.Length;
+                int count = missions.Length;
                 int n = count;
                 while (n > 1)
                 {
                     n--;
                     int r = rnd.Next(count);
-                    var temp = this.missions[r];
-                    this.missions[r] = this.missions[n];
-                    this.missions[n] = temp;
+                    var temp = missions[r];
+                    missions[r] = missions[n];
+                    missions[n] = temp;
                 }
+
+                return new Queue<MissionDefinition>(missions);
             }
             catch (Exception e)
             {
                 Debug.Log("Error loading missions: " + e.Message);
-                this.missions = new MissionDefinition[0];
+                return new Queue<MissionDefinition>();
             }
         }
-
-
     }
 }

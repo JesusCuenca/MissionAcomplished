@@ -199,6 +199,129 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 48396308}
   m_CullTransparentMesh: 0
+--- !u!1 &59730145
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 59730150}
+  - component: {fileID: 59730149}
+  - component: {fileID: 59730148}
+  - component: {fileID: 59730147}
+  - component: {fileID: 59730146}
+  m_Layer: 0
+  m_Name: Net
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &59730146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59730145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1277178385, guid: 6a67afbfe15ab9c4696e982c25d07a84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  remoteEvents_:
+  - eventName: GameStateChanged
+    Foldout: 1
+    target: 0
+    remoteEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - eventName: GameCardPlayed
+    Foldout: 1
+    target: 0
+    remoteEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  AgentId: 1
+--- !u!114 &59730147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59730145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1945091883, guid: 6a67afbfe15ab9c4696e982c25d07a84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  properties_:
+  - Foldout: 1
+    name: GameData
+    type: 0
+    conflictResolution: 0
+    data: 
+    onValueChange:
+      m_PersistentCalls:
+        m_Calls: []
+    onConflict:
+      m_PersistentCalls:
+        m_Calls: []
+    onReady:
+      m_PersistentCalls:
+        m_Calls: []
+  restoreState: 1
+  AutoInitialization: 1
+  AgentId: 1
+--- !u!114 &59730148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59730145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1914939488, guid: 6a67afbfe15ab9c4696e982c25d07a84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  dynamicallySpawned: 1
+  fixedNetworkObjectID: 1
+  showVisibleGizmo: 1
+  Filterable: 0
+  SendRealtimeData: 1
+  visibleSize: 1
+--- !u!114 &59730149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59730145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7de14520c9e9d5c4d98a50bc50d04703, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomPropertyAgent: {fileID: 0}
+  roomRemoteEventAgent: {fileID: 0}
+--- !u!4 &59730150
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59730145}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.10198974, y: 2.6279922, z: 110.47595}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &62547729
 GameObject:
   m_ObjectHideFlags: 0
@@ -1217,6 +1340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71ebc1828b63446498ccb931e5d7cd85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  netService: {fileID: 0}
 --- !u!114 &489090466
 MonoBehaviour:
   m_ObjectHideFlags: 0
